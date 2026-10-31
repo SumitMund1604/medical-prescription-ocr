@@ -1,0 +1,7 @@
+Handwritten and printed prescriptions are still common, but their contents are hard to read, store, and reuse. Manual re-typing is slow and error-prone. This project presents a Medical Prescription OCR system: a simple, locally hosted web application that turns a photographed or scanned prescription into a small structured record containing the medicine name, dosage, and frequency.
+
+The system works in three stages. First, image preprocessing applies grayscale conversion, resizing, adaptive thresholding, and denoising to improve image quality. Second, EasyOCR, with Tesseract as a fallback, extracts the raw text from the image. Third, a rule-based extractor uses regular expressions and fuzzy matching against a small medicine list to identify the three target fields. The results are displayed in a table next to the raw OCR text, and handwritten inputs show a clear "verify manually" warning.
+
+The system is evaluated on a public prescription dataset of about 1,000 synthetic images plus a small set of real photographs. Success means correct extraction for at least 7 of 10 clear printed samples and a plausible result for at least 3 of 5 handwritten samples, with processing under 10 seconds per image.
+
+This is a class demonstration, not a clinical tool. It supports English prescriptions only, trains no custom model, and performs no patient-record management, drug-interaction checking, or diagnosis.
